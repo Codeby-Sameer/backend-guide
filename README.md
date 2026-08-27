@@ -62,69 +62,69 @@ Follow this structured roadmap to build intuitive mental models from network pac
 ## 📚 Complete Table of Contents
 
 ### 🌐 1. Networking & Protocols
-- [01. HTTP vs HTTPS](file:///home/sameer/backendguide/01-networking/http-vs-https.md) — Plaintext vs encrypted transport, HTTP/1.1 vs HTTP/2 vs HTTP/3, HSTS, ports 80/443, SSL stripping.
-- [02. Transport Layer Security (TLS)](file:///home/sameer/backendguide/01-networking/tls.md) — TLS 1.3 1-RTT handshake, X.509 chain of trust, SNI, Perfect Forward Secrecy (PFS), session tickets.
-- [03. Mutual TLS (mTLS)](file:///home/sameer/backendguide/01-networking/mtls.md) — Zero-Trust microservice identity, SPIFFE IDs, service mesh (Istio/Envoy) offloading, client cert verification.
+- [01. HTTP vs HTTPS](./01-networking/http-vs-https.md) — Plaintext vs encrypted transport, HTTP/1.1 vs HTTP/2 vs HTTP/3, HSTS, ports 80/443, SSL stripping.
+- [02. Transport Layer Security (TLS)](./01-networking/tls.md) — TLS 1.3 1-RTT handshake, X.509 chain of trust, SNI, Perfect Forward Secrecy (PFS), session tickets.
+- [03. Mutual TLS (mTLS)](./01-networking/mtls.md) — Zero-Trust microservice identity, SPIFFE IDs, service mesh (Istio/Envoy) offloading, client cert verification.
 
 ### 🔌 2. API Design & Reliability
-- [04. REST APIs & API Design](file:///home/sameer/backendguide/02-api-design/rest-apis.md) — Resource naming, HTTP verbs, PUT vs PATCH, cursor vs offset pagination, RFC 7807 problem details, REST vs gRPC vs GraphQL.
-- [05. Idempotency & Safe Retries](file:///home/sameer/backendguide/03-reliability/idempotency.md) — Network timeouts, duplicate payments, idempotency keys, state machines, atomic lock acquisition.
+- [04. REST APIs & API Design](./02-api-design/rest-apis.md) — Resource naming, HTTP verbs, PUT vs PATCH, cursor vs offset pagination, RFC 7807 problem details, REST vs gRPC vs GraphQL.
+- [05. Idempotency & Safe Retries](./03-reliability/idempotency.md) — Network timeouts, duplicate payments, idempotency keys, state machines, atomic lock acquisition.
 
 ### 🛡️ 3. Security & Identity
-- [06. Authentication vs Authorization](file:///home/sameer/backendguide/04-security/authentication-vs-authorization.md) — AuthN vs AuthZ, 401 vs 403, RBAC vs ABAC, BOLA/IDOR prevention, API key hashing.
-- [07. JWT vs Sessions](file:///home/sameer/backendguide/04-security/jwt-vs-sessions.md) — Stateful sessions vs stateless value tokens, cookie flags (`HttpOnly`, `Secure`, `SameSite`), Refresh Token Rotation, revocation strategies.
+- [06. Authentication vs Authorization](./04-security/authentication-vs-authorization.md) — AuthN vs AuthZ, 401 vs 403, RBAC vs ABAC, BOLA/IDOR prevention, API key hashing.
+- [07. JWT vs Sessions](./04-security/jwt-vs-sessions.md) — Stateful sessions vs stateless value tokens, cookie flags (`HttpOnly`, `Secure`, `SameSite`), Refresh Token Rotation, revocation strategies.
 
 ### 🗄️ 4. Databases & Storage Engines
-- [08. Database Indexes & Optimization](file:///home/sameer/backendguide/05-databases/indexes.md) — B+ Trees, sequential vs index scan, clustered vs heap tables (MySQL vs PostgreSQL), covering indexes, `EXPLAIN ANALYZE`.
-- [09. Composite Indexes & Column Ordering](file:///home/sameer/backendguide/05-databases/composite-indexes.md) — Leftmost-Prefix Principle, equality first range second, eliminating in-memory sorting.
-- [10. Transactions & ACID](file:///home/sameer/backendguide/05-databases/transactions-acid.md) — Logical units of work, Write-Ahead Logging (WAL), ARIES crash recovery, A/C/I/D mechanics, the Saga pattern.
-- [11. Isolation Levels & Concurrency Anomalies](file:///home/sameer/backendguide/05-databases/isolation-levels.md) — Dirty Read, Non-Repeatable Read, Phantom Read, Write Skew, MVCC snapshot internals, ANSI SQL matrix.
-- [12. Locks & Deadlocks](file:///home/sameer/backendguide/05-databases/locks-deadlocks.md) — Shared vs Exclusive locks, `SELECT FOR UPDATE`, Wait-For Graph cycle detection, optimistic vs pessimistic locking, `SKIP LOCKED`.
-- [13. N+1 Query Problem](file:///home/sameer/backendguide/05-databases/n-plus-one.md) — ORM lazy-loading pitfalls, SQL JOINs vs batched `IN (...)` queries, GraphQL DataLoader pattern.
-- [14. Database Connection Pooling](file:///home/sameer/backendguide/05-databases/connection-pooling.md) — Raw connection costs, optimal sizing formula ($(\text{Cores} \times 2) + \text{Spindles}$), PgBouncer transaction pooling.
+- [08. Database Indexes & Optimization](./05-databases/indexes.md) — B+ Trees, sequential vs index scan, clustered vs heap tables (MySQL vs PostgreSQL), covering indexes, `EXPLAIN ANALYZE`.
+- [09. Composite Indexes & Column Ordering](./05-databases/composite-indexes.md) — Leftmost-Prefix Principle, equality first range second, eliminating in-memory sorting.
+- [10. Transactions & ACID](./05-databases/transactions-acid.md) — Logical units of work, Write-Ahead Logging (WAL), ARIES crash recovery, A/C/I/D mechanics, the Saga pattern.
+- [11. Isolation Levels & Concurrency Anomalies](./05-databases/isolation-levels.md) — Dirty Read, Non-Repeatable Read, Phantom Read, Write Skew, MVCC snapshot internals, ANSI SQL matrix.
+- [12. Locks & Deadlocks](./05-databases/locks-deadlocks.md) — Shared vs Exclusive locks, `SELECT FOR UPDATE`, Wait-For Graph cycle detection, optimistic vs pessimistic locking, `SKIP LOCKED`.
+- [13. N+1 Query Problem](./05-databases/n-plus-one.md) — ORM lazy-loading pitfalls, SQL JOINs vs batched `IN (...)` queries, GraphQL DataLoader pattern.
+- [14. Database Connection Pooling](./05-databases/connection-pooling.md) — Raw connection costs, optimal sizing formula ($(\text{Cores} \times 2) + \text{Spindles}$), PgBouncer transaction pooling.
 
 ### ⚡ 5. Caching & Distributed Concurrency
-- [15. Redis & Caching Strategies](file:///home/sameer/backendguide/06-caching/redis-caching.md) — Single-threaded event loop, Cache-Aside, eviction policies, Stampede / Penetration / Avalanche mitigations, distributed locking with Lua.
-- [16. Race Conditions & Concurrency](file:///home/sameer/backendguide/08-concurrency/race-conditions.md) — Read-Modify-Write, Check-Then-Act, atomic SQL updates, distributed mutexes, fencing tokens.
+- [15. Redis & Caching Strategies](./06-caching/redis-caching.md) — Single-threaded event loop, Cache-Aside, eviction policies, Stampede / Penetration / Avalanche mitigations, distributed locking with Lua.
+- [16. Race Conditions & Concurrency](./08-concurrency/race-conditions.md) — Read-Modify-Write, Check-Then-Act, atomic SQL updates, distributed mutexes, fencing tokens.
 
 ### 📬 6. Messaging & Asynchronous Systems
-- [17. Message Queues & Apache Kafka](file:///home/sameer/backendguide/07-messaging/message-queues-kafka.md) — Push queues vs pull commit logs, partitions, offset management, consumer groups, exactly-once semantics, Transactional Outbox pattern.
+- [17. Message Queues & Apache Kafka](./07-messaging/message-queues-kafka.md) — Push queues vs pull commit logs, partitions, offset management, consumer groups, exactly-once semantics, Transactional Outbox pattern.
 
 ### 📈 7. Scalability & Infrastructure
-- [18. Rate Limiting & API Protection](file:///home/sameer/backendguide/09-scalability/rate-limiting.md) — Token Bucket vs Leaky Bucket vs Sliding Window, distributed rate limiting with Redis Lua, HTTP 429 headers.
-- [19. Load Balancing & Traffic Routing](file:///home/sameer/backendguide/09-scalability/load-balancing.md) — Layer 4 vs Layer 7, routing algorithms, active/passive health checks, sticky session pitfalls, upstream keep-alive.
-- [20. Horizontal vs Vertical Scaling](file:///home/sameer/backendguide/09-scalability/horizontal-vs-vertical-scaling.md) — Stateless application tier, read replicas, replication lag, database sharding, CAP/PACELC theorems.
-- [21. Docker & Container Architecture](file:///home/sameer/backendguide/10-containers/docker.md) — Containers vs VMs, Linux Namespaces, cgroups, OverlayFS, multi-stage builds, non-root security, PID 1 init reaping.
+- [18. Rate Limiting & API Protection](./09-scalability/rate-limiting.md) — Token Bucket vs Leaky Bucket vs Sliding Window, distributed rate limiting with Redis Lua, HTTP 429 headers.
+- [19. Load Balancing & Traffic Routing](./09-scalability/load-balancing.md) — Layer 4 vs Layer 7, routing algorithms, active/passive health checks, sticky session pitfalls, upstream keep-alive.
+- [20. Horizontal vs Vertical Scaling](./09-scalability/horizontal-vs-vertical-scaling.md) — Stateless application tier, read replicas, replication lag, database sharding, CAP/PACELC theorems.
+- [21. Docker & Container Architecture](./10-containers/docker.md) — Containers vs VMs, Linux Namespaces, cgroups, OverlayFS, multi-stage builds, non-root security, PID 1 init reaping.
 
 ### 🔍 8. Observability & SRE
-- [22. Observability: Logging, Metrics & Tracing](file:///home/sameer/backendguide/11-observability/logging-metrics-monitoring.md) — The Three Pillars, RED/USE methods, tail latency (p95/p99) vs average, SLI/SLO/SLA, error budgets, Prometheus cardinality explosion, OpenTelemetry tracing.
+- [22. Observability: Logging, Metrics & Tracing](./11-observability/logging-metrics-monitoring.md) — The Three Pillars, RED/USE methods, tail latency (p95/p99) vs average, SLI/SLO/SLA, error budgets, Prometheus cardinality explosion, OpenTelemetry tracing.
 
 ---
 
 ## 🎯 Interview Question Banks
 
 Dedicated, categorized question repositories:
-- [Beginner Interview Questions](file:///home/sameer/backendguide/interview-questions/beginner.md) — Core concepts, definitions, and mental models.
-- [Intermediate Interview Questions](file:///home/sameer/backendguide/interview-questions/intermediate.md) — Performance mechanics, ACID internals, and caching design.
-- [Advanced Interview Questions](file:///home/sameer/backendguide/interview-questions/advanced.md) — Distributed systems, write skew, SSI, kernel zero-copy, and fencing tokens.
-- [Production Scenarios & Incident Debugging](file:///home/sameer/backendguide/interview-questions/production-scenarios.md) — High-stakes real-world failure triage and root-cause analysis.
-- [Rapid-Fire 40-Question Revision](file:///home/sameer/backendguide/interview-questions/rapid-fire.md) — Fast-paced pre-interview refresh.
+- [Beginner Interview Questions](./interview-questions/beginner.md) — Core concepts, definitions, and mental models.
+- [Intermediate Interview Questions](./interview-questions/intermediate.md) — Performance mechanics, ACID internals, and caching design.
+- [Advanced Interview Questions](./interview-questions/advanced.md) — Distributed systems, write skew, SSI, kernel zero-copy, and fencing tokens.
+- [Production Scenarios & Incident Debugging](./interview-questions/production-scenarios.md) — High-stakes real-world failure triage and root-cause analysis.
+- [Rapid-Fire 40-Question Revision](./interview-questions/rapid-fire.md) — Fast-paced pre-interview refresh.
 
 ---
 
 ## ⚡ Quick Reference Cheatsheets
 
-- [Backend Master One-Page Cheatsheet](file:///home/sameer/backendguide/cheatsheets/backend-one-page.md)
-- [Database & SQL Cheatsheet](file:///home/sameer/backendguide/cheatsheets/database-cheatsheet.md)
-- [Networking & TLS Cheatsheet](file:///home/sameer/backendguide/cheatsheets/networking-cheatsheet.md)
-- [Security & Authentication Cheatsheet](file:///home/sameer/backendguide/cheatsheets/security-cheatsheet.md)
-- [Distributed Systems & Scaling Cheatsheet](file:///home/sameer/backendguide/cheatsheets/distributed-systems-cheatsheet.md)
+- [Backend Master One-Page Cheatsheet](./cheatsheets/backend-one-page.md)
+- [Database & SQL Cheatsheet](./cheatsheets/database-cheatsheet.md)
+- [Networking & TLS Cheatsheet](./cheatsheets/networking-cheatsheet.md)
+- [Security & Authentication Cheatsheet](./cheatsheets/security-cheatsheet.md)
+- [Distributed Systems & Scaling Cheatsheet](./cheatsheets/distributed-systems-cheatsheet.md)
 
 ---
 
 ## 📊 Technical Diagrams Gallery
 
-All technical diagrams are available in standalone `.mmd` files in the [`diagrams/`](file:///home/sameer/backendguide/diagrams/) directory and embedded directly into the markdown guides:
+All technical diagrams are available in standalone `.mmd` files in the [`diagrams/`](./diagrams/) directory and embedded directly into the markdown guides:
 1. `01-http-request-response.mmd`
 2. `02-tls-handshake.mmd`
 3. `03-mtls-handshake.mmd`
