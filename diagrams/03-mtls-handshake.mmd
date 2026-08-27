@@ -1,0 +1,14 @@
+sequenceDiagram
+    autonumber
+    participant ServiceA as Service A (Client)
+    participant ServiceB as Service B (Server)
+
+    ServiceA->>ServiceB: ClientHello (Supported Cipher Suites & TLS Key Share)
+    ServiceB->>ServiceA: ServerHello + Server Certificate + CertificateRequest
+    Note over ServiceA: 1. Service A verifies Service B's Certificate against internal Trust Store (CA)
+    ServiceA->>ServiceB: Client Certificate + CertificateVerify (Signature) + Finished
+    Note over ServiceB: 2. Service B verifies Service A's Certificate against internal Trust Store (CA)
+    ServiceB->>ServiceA: Finished
+    Note over ServiceA,ServiceB: Mutual Authentication Established (Both Identities Verified)
+    ServiceA->>ServiceB: Encrypted RPC / HTTP Request
+    ServiceB-->>ServiceA: Encrypted Response

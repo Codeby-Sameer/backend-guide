@@ -1,0 +1,25 @@
+graph TD
+    subgraph Rate Limiting Algorithms
+        subgraph Fixed Window Counter
+            FW1["Window [00:00 - 01:00]: Count = 100/100"]
+            FW2["Window [01:00 - 02:00]: Count = 100/100"]
+            FW_Issue["Flaw: Boundary burst (200 reqs in 2 seconds around boundary)"]
+        end
+
+        subgraph Sliding Window Log / Counter
+            SW1["Compute weight of previous window + current window count"]
+            SW_Benefit["Smooth rolling limit, eliminates window edge boundary spike"]
+        end
+
+        subgraph Token Bucket
+            TB_Refill["Tokens refilled at constant rate 'r' up to capacity 'C'"]
+            TB_Consume["Requests consume 1 token; drops if empty"]
+            TB_Benefit["Allows controlled traffic bursts while enforcing average rate"]
+        end
+
+        subgraph Leaky Bucket
+            LB_Queue["Requests enter FIFO queue"]
+            LB_Leak["Requests processed at fixed constant rate"]
+            LB_Benefit["Smooths out traffic into perfectly constant output rate"]
+        end
+    end

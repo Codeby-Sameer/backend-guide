@@ -1,0 +1,21 @@
+graph TD
+    subgraph Traditional Virtual Machine
+        AppVM1[App 1 + Libs]
+        GuestOS1[Guest OS Kernel]
+        Hypervisor[Hypervisor (Type 1/2)]
+        HostOS_VM[Host OS / Hardware]
+
+        AppVM1 --> GuestOS1 --> Hypervisor --> HostOS_VM
+    end
+
+    subgraph Docker Container Architecture
+        AppC1[Container 1: App + Deps]
+        AppC2[Container 2: App + Deps]
+        DockerDaemon[Docker Engine / Containerd]
+        HostKernel[Shared Host Linux Kernel (Namespaces, Cgroups, Chroot/OverlayFS)]
+        HostHardware[Host Hardware]
+
+        AppC1 --> DockerDaemon
+        AppC2 --> DockerDaemon
+        DockerDaemon --> HostKernel --> HostHardware
+    end

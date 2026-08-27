@@ -1,0 +1,11 @@
+graph TD
+    subgraph ANSI SQL Isolation Levels
+        RU["Read Uncommitted<br/>(Allows: Dirty Read, Non-Repeatable Read, Phantom Read)"]
+        RC["Read Committed (Default in Postgres/Oracle/SQLServer)<br/>(Prevents Dirty Read; Allows Non-Repeatable Read, Phantom Read)"]
+        RR["Repeatable Read (Default in MySQL InnoDB)<br/>(Prevents Dirty Read & Non-Repeatable Read; InnoDB prevents Phantom via Next-Key Lock)"]
+        SER["Serializable<br/>(Full Isolation: Prevents all anomalies including Write Skew)"]
+
+        RU -->|Stricter Isolation / More Locking or MVCC Checks| RC
+        RC --> RR
+        RR --> SER
+    end

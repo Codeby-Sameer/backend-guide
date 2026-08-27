@@ -1,0 +1,22 @@
+sequenceDiagram
+    autonumber
+    participant Client as Client Application
+    participant Gateway as API Gateway / Backend
+    participant Store as Idempotency Store (Redis/DB)
+    participant Core as Payment Engine / Core Service
+
+    Client->>Gateway: POST /v1/payments (Headers: Idempotency-Key: "uuid-9876")
+    Gateway->>Store: SET key:uuid-9876 "IN_PROGRESS" NX EX 120
+    alt Key already exists with state COMPLETED
+        Store-->>Gateway: Key exists (Cached Response Payload)
+        Gateway-->>Client: 200 OK (Cached Success Response, No Re-execution)
+    else Key exists with state IN_PROGRESS
+        Store-->>Gateway: Key exists (Currently Processing)
+        Gateway-->>Client: 409 Conflict / 425 Too Early ("Request in progress, retry shortly")
+    else Key successfully acquired (Lock acquired)
+        Store-->>Gateway: OK (Acquisition Success)
+        Gateway->>Core: Execute Payment Processing
+        Core-->>Gateway: Payment Processed Successfully
+        Gateway->>Store: UPDATE key:uuid-9876 SET state="COMPLETED", response=payload, TTL=86400
+        Gateway-->>Client: 201 Created (Payment Result)
+    end

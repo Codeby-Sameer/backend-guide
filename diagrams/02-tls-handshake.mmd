@@ -1,0 +1,14 @@
+sequenceDiagram
+    autonumber
+    participant Client as Client (Browser/App)
+    participant Server as Web Server (TLS 1.3)
+
+    Note over Client,Server: TCP Handshake Completed
+    Client->>Server: ClientHello (Supported Ciphers, Key Share / Diffie-Hellman Parameter)
+    Server->>Client: ServerHello + Key Share + Server Certificate + EncryptedExtensions + Finished
+    Note over Client: Verify Certificate (Validity, Chain to trusted Root CA, CN/SAN matching)
+    Note over Client: Compute Shared Symmetric Key (Diffie-Hellman)
+    Client->>Server: Finished (Encrypted Handshake Complete)
+    Note over Client,Server: Application Data Flow (AES-GCM / ChaCha20 Symmetric Encryption)
+    Client->>Server: Encrypted HTTP Request
+    Server-->>Client: Encrypted HTTP Response

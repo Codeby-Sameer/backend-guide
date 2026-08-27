@@ -1,0 +1,14 @@
+sequenceDiagram
+    autonumber
+    participant Client as Client (Browser/Mobile App)
+    participant DNS as DNS Resolver
+    participant Server as Web/API Server
+
+    Client->>DNS: Query IP for api.example.com
+    DNS-->>Client: Return IP (e.g., 93.184.216.34)
+    Note over Client,Server: TCP 3-Way Handshake (SYN -> SYN-ACK -> ACK)
+    Client->>Server: HTTP Request (GET /v1/users/123 HTTP/1.1)
+    Note over Client,Server: Headers: Host, User-Agent, Accept, Authorization
+    Server->>Server: Process Request (Auth, Routing, DB Query)
+    Server-->>Client: HTTP Response (200 OK + JSON Payload)
+    Note over Client,Server: Headers: Content-Type: application/json, Cache-Control

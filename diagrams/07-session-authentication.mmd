@@ -1,0 +1,15 @@
+sequenceDiagram
+    autonumber
+    participant Client as Browser Client
+    participant Server as Web / App Server
+    participant SessionStore as Session Store (Redis / DB)
+
+    Client->>Server: POST /auth/login (username, password)
+    Server->>Server: Verify Credentials
+    Server->>SessionStore: Store Session: sessionId="sess_abc123" -> { userId: 42, role: "admin" }
+    Server-->>Client: 200 OK (Set-Cookie: sessionId=sess_abc123; HttpOnly; Secure; SameSite=Lax)
+
+    Client->>Server: GET /dashboard (Cookie: sessionId=sess_abc123)
+    Server->>SessionStore: Lookup "sess_abc123"
+    SessionStore-->>Server: Return session data { userId: 42, role: "admin" }
+    Server-->>Client: 200 OK (Rendered Dashboard)

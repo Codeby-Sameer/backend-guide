@@ -1,0 +1,18 @@
+graph TD
+    subgraph Table Scan (O(N) Disk/Memory IO)
+        App1[Application Query: SELECT * WHERE email='alice@example.com'] --> DB1[Database Engine]
+        DB1 --> Row1[Row 1: bob@...]
+        Row1 --> Row2[Row 2: charlie@...]
+        Row2 --> Row3[Row 3: david@...]
+        Row3 --> RowDots[... Scan 10,000,000 Data Pages ...]
+        RowDots --> RowMatch1[Match: alice@example.com - High IO / Slow]
+    end
+
+    subgraph Index Scan / Lookup (O(log N) Traversal)
+        App2[Application Query: SELECT * WHERE email='alice@example.com'] --> DB2[Database Engine]
+        DB2 --> RootNode[B-Tree Root Node]
+        RootNode --> IntermediateNode[Branch Page 'A' - 'M']
+        IntermediateNode --> LeafNode[Leaf Page 'a' - 'am']
+        LeafNode --> DataPointer[Direct Row Pointer / Clustered Key]
+        DataPointer --> ExactRow[Exact Row Fetched in 3-4 IO Operations]
+    end

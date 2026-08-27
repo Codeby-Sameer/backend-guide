@@ -1,0 +1,32 @@
+graph TD
+    subgraph B+ Tree Index Structure
+        Root["Root Node: [ 50 | 100 ]"]
+        
+        Branch1["Branch Node: [ 20 | 35 ]"]
+        Branch2["Branch Node: [ 65 | 80 ]"]
+        Branch3["Branch Node: [ 120 | 150 ]"]
+        
+        Root -->|< 50| Branch1
+        Root -->|>= 50 and < 100| Branch2
+        Root -->|>= 100| Branch3
+        
+        Leaf1["Leaf Page 1: [ 10 | 15 | 20 ]"]
+        Leaf2["Leaf Page 2: [ 25 | 30 | 35 ]"]
+        Leaf3["Leaf Page 3: [ 55 | 60 | 65 ]"]
+        Leaf4["Leaf Page 4: [ 70 | 75 | 80 ]"]
+        Leaf5["Leaf Page 5: [ 105 | 110 | 120 ]"]
+        Leaf6["Leaf Page 6: [ 130 | 140 | 150 ]"]
+
+        Branch1 --> Leaf1
+        Branch1 --> Leaf2
+        Branch2 --> Leaf3
+        Branch2 --> Leaf4
+        Branch3 --> Leaf5
+        Branch3 --> Leaf6
+
+        Leaf1 <-->|Doubly Linked List| Leaf2
+        Leaf2 <-->|Doubly Linked List| Leaf3
+        Leaf3 <-->|Doubly Linked List| Leaf4
+        Leaf4 <-->|Doubly Linked List| Leaf5
+        Leaf5 <-->|Doubly Linked List| Leaf6
+    end

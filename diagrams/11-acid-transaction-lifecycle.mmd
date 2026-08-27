@@ -1,0 +1,26 @@
+sequenceDiagram
+    autonumber
+    participant App as Application Code
+    participant TM as Transaction Manager / DB Engine
+    participant WAL as Write-Ahead Log (WAL / Redo Log)
+    participant Buffer as Buffer Pool (In-Memory Pages)
+    participant Disk as Data Files (Disk)
+
+    App->>TM: BEGIN TRANSACTION (Tx 901)
+    App->>TM: UPDATE accounts SET balance = balance - 100 WHERE id = 1
+    TM->>Buffer: Pin Page & Apply Delta (Dirty Page)
+    TM->>WAL: Append Log Record (Tx 901: Account 1 -100)
+    App->>TM: UPDATE accounts SET balance = balance + 100 WHERE id = 2
+    TM->>Buffer: Pin Page & Apply Delta (Dirty Page)
+    TM->>WAL: Append Log Record (Tx 901: Account 2 +100)
+    
+    alt Commit Transaction
+        App->>TM: COMMIT
+        TM->>WAL: Flush Log Record to Disk (fsync WAL - Durability Guaranteed)
+        TM-->>App: Commit Successful (200 OK)
+        Note over Buffer,Disk: Background checkpoint asynchronously flushes dirty pages to Disk
+    else Rollback / Error
+        App->>TM: ROLLBACK
+        TM->>Buffer: Revert in-memory dirty changes using Undo Log
+        TM-->>App: Abort Successful (Atomicity Guaranteed)
+    end

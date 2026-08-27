@@ -1,0 +1,20 @@
+graph TD
+    subgraph Vertical Scaling (Scale Up)
+        V1["Single Server (4 vCPU, 16GB RAM)"] -->|Upgrade Hardware (Downtime/Cost Cap)| V2["Bigger Server (64 vCPU, 256GB RAM)"]
+        V_Pros["Pros: No distributed complexity, simple ACID"]
+        V_Cons["Cons: Hard hardware limit, single point of failure, exponential cost"]
+    end
+
+    subgraph Horizontal Scaling (Scale Out)
+        H_LB[Load Balancer] --> H1["Stateless Instance 1"]
+        H_LB --> H2["Stateless Instance 2"]
+        H_LB --> H3["Stateless Instance 3"]
+        H_LB --> HN["Stateless Instance N..."]
+        H_State["Shared State: Redis Cluster & DB Shards/Replicas"]
+        H1 --> H_State
+        H2 --> H_State
+        H3 --> H_State
+        HN --> H_State
+        H_Pros["Pros: Near-infinite elasticity, high availability, fault tolerance"]
+        H_Cons["Cons: Network latency, distributed state, consistency challenges"]
+    end

@@ -1,0 +1,14 @@
+graph TD
+    subgraph Observability Pillars
+        Logs["1. Logs (Discrete Event Records)<br/>'What happened at timestamp T?'<br/>- JSON structured logs<br/>- Error stacktraces<br/>- Request/Response payloads"]
+        Metrics["2. Metrics (Aggregatable Numerics)<br/>'Is the system healthy right now?'<br/>- RED metrics (Rate, Errors, Duration)<br/>- USE metrics (Utilization, Saturation, Errors)<br/>- p50, p95, p99 Latency percentiles"]
+        Traces["3. Traces (Distributed Request Journeys)<br/>'Where did the latency occur across microservices?'<br/>- Trace ID / Span ID propagation<br/>- Waterfall view of RPC, DB, Cache queries"]
+    end
+
+    subgraph Correlation Key
+        TraceContext["Correlation Key: trace_id / request_id present across Logs, Metrics, and Distributed Traces"]
+    end
+
+    Logs --- TraceContext
+    Metrics --- TraceContext
+    Traces --- TraceContext

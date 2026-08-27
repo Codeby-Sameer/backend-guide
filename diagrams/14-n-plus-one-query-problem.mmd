@@ -1,0 +1,20 @@
+sequenceDiagram
+    autonumber
+    participant App as Application / ORM
+    participant DB as Database Engine
+
+    Note over App,DB: The N+1 Anti-Pattern (1 initial query + N follow-up queries)
+    App->>DB: 1. SELECT * FROM authors LIMIT 100;
+    DB-->>App: Returns 100 Author records
+    loop For each of the 100 authors
+        App->>DB: SELECT * FROM books WHERE author_id = ?;
+        DB-->>App: Returns Books
+    end
+    Note over App,DB: Total DB roundtrips = 1 + 100 = 101 queries (High latency & overhead)
+
+    Note over App,DB: The Eager Loading / Batching Solution (1 or 2 queries)
+    App->>DB: SELECT * FROM authors LIMIT 100;
+    DB-->>App: Returns 100 Author records (IDs: 1..100)
+    App->>DB: SELECT * FROM books WHERE author_id IN (1, 2, ..., 100);
+    DB-->>App: Returns all associated books in single roundtrip
+    Note over App,DB: Total DB roundtrips = 2 queries

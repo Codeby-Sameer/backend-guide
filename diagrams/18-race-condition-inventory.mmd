@@ -1,0 +1,21 @@
+sequenceDiagram
+    autonumber
+    participant U1 as User 1 Request
+    participant App as API Server (Concurrent Threads)
+    participant DB as Inventory Database (stock = 1)
+    participant U2 as User 2 Request
+
+    Note over DB: Current State: product_id=99, stock=1
+    U1->>App: Buy Product 99 (Thread 1)
+    U2->>App: Buy Product 99 (Thread 2)
+
+    App->>DB: Thread 1: SELECT stock FROM products WHERE id=99 (Returns 1)
+    App->>DB: Thread 2: SELECT stock FROM products WHERE id=99 (Returns 1)
+
+    Note over App: Both threads check: stock (1) > 0 -> TRUE!
+    
+    App->>DB: Thread 1: UPDATE products SET stock = 1 - 1 WHERE id=99 (stock becomes 0)
+    App->>DB: Thread 2: UPDATE products SET stock = 1 - 1 WHERE id=99 (stock becomes 0 or overwrites!)
+    
+    App-->>U1: 200 OK: Purchase Successful!
+    App-->>U2: 200 OK: Purchase Successful! (OVERSELLING BUG!)

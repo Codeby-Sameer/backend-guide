@@ -1,0 +1,18 @@
+sequenceDiagram
+    autonumber
+    participant Tx1 as Transaction 1
+    participant RowA as Row A (Account 101)
+    participant RowB as Row B (Account 202)
+    participant Tx2 as Transaction 2
+    participant DB as DB Deadlock Detector
+
+    Tx1->>RowA: Acquires Exclusive Lock (Row A)
+    Tx2->>RowB: Acquires Exclusive Lock (Row B)
+    
+    Tx1->>RowB: Requests Lock on Row B (BLOCKED - Waiting for Tx2)
+    Tx2->>RowA: Requests Lock on Row A (BLOCKED - Waiting for Tx1)
+
+    Note over Tx1,Tx2: Circular Wait Condition: Tx1 waits for Tx2, Tx2 waits for Tx1
+    DB->>DB: Wait-For Graph Cycle Detected!
+    DB-->>Tx2: ERROR 1213 (40001): Deadlock found when trying to get lock; Tx2 aborted (Rollback)
+    Note over Tx1: Tx1 acquires Lock on Row B and completes

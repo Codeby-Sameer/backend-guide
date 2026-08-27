@@ -1,0 +1,17 @@
+graph TD
+    subgraph Composite Index on (customer_id, created_at)
+        Node1["(101, 2026-01-01) -> Row 1"]
+        Node2["(101, 2026-01-05) -> Row 2"]
+        Node3["(101, 2026-01-10) -> Row 3"]
+        Node4["(102, 2026-01-02) -> Row 4"]
+        Node5["(102, 2026-01-08) -> Row 5"]
+        Node6["(103, 2026-01-03) -> Row 6"]
+
+        Node1 --> Node2 --> Node3 --> Node4 --> Node5 --> Node6
+    end
+
+    subgraph Query Evaluation
+        Q1["WHERE customer_id = 101 AND created_at > '2026-01-02'"] -->|Fast Range Scan| S1["Uses Full Index Efficiently (Seek customer_id=101, scan created_at)"]
+        Q2["WHERE customer_id = 101"] -->|Index Seek| S2["Uses Leading Column (Leftmost Prefix Matched)"]
+        Q3["WHERE created_at = '2026-01-05'"] -->|Full Index Scan / Table Scan| S3["Cannot Seek! Leading column customer_id is missing"]
+    end

@@ -1,0 +1,22 @@
+sequenceDiagram
+    autonumber
+    participant App as Application Service
+    participant Cache as Redis Cache
+    participant DB as Relational Database
+
+    Note over App,DB: 1. Cache-Aside (Lazy Loading) - Read Flow
+    App->>Cache: GET user:1001
+    alt Cache Hit (Key found)
+        Cache-->>App: Return User Data (Fast, <1ms)
+    else Cache Miss (Key not found)
+        Cache-->>App: Return Nil
+        App->>DB: SELECT * FROM users WHERE id = 1001
+        DB-->>App: Return User Row
+        App->>Cache: SETEX user:1001 3600 <UserData>
+        App-->>App: Process User Data
+    end
+
+    Note over App,DB: 2. Write Flow (Cache Invalidation)
+    App->>DB: UPDATE users SET name = 'New Name' WHERE id = 1001
+    DB-->>App: Update Success
+    App->>Cache: DEL user:1001 (Invalidate cache to avoid stale read)

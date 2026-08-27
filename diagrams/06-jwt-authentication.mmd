@@ -1,0 +1,15 @@
+sequenceDiagram
+    autonumber
+    participant Client as Client (Browser/Mobile)
+    participant AuthServer as Auth Service
+    participant APIServer as API Gateway / Microservices
+
+    Client->>AuthServer: POST /auth/login (username, password)
+    AuthServer->>AuthServer: Verify Credentials & Sign JWT with Secret/Private Key
+    AuthServer-->>Client: 200 OK (access_token: eyJhbGci..., refresh_token: def456...)
+    Note over Client: Stores JWT in Memory / HttpOnly Cookie
+
+    Client->>APIServer: GET /api/v1/orders (Header: Authorization: Bearer eyJhbGci...)
+    Note over APIServer: Statelessly verifies signature with Public Key / Secret & Checks Expiration
+    APIServer->>APIServer: Extracts claims: { sub: "user_42", role: "admin" }
+    APIServer-->>Client: 200 OK (Orders Data)

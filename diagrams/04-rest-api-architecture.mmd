@@ -1,0 +1,34 @@
+graph TD
+    subgraph Clients
+        SPA[Single Page App]
+        Mobile[Mobile App]
+        ThirdParty[Third-Party Service]
+    end
+
+    subgraph API Gateway / Reverse Proxy
+        GW[API Gateway / NGINX]
+        RateLimit[Rate Limiter]
+        AuthN[Auth Validation]
+    end
+
+    subgraph Backend Services
+        ResourceRouter[Resource Router / Controllers]
+        UserResource["/api/v1/users (GET, POST)"]
+        OrderResource["/api/v1/orders/{id} (GET, PUT, PATCH, DELETE)"]
+        ProductResource["/api/v1/products?page=2&limit=20 (GET)"]
+    end
+
+    subgraph Data Layer
+        DB[(Relational DB / Document Store)]
+    end
+
+    Clients --> GW
+    GW --> RateLimit
+    RateLimit --> AuthN
+    AuthN --> ResourceRouter
+    ResourceRouter --> UserResource
+    ResourceRouter --> OrderResource
+    ResourceRouter --> ProductResource
+    UserResource --> DB
+    OrderResource --> DB
+    ProductResource --> DB
