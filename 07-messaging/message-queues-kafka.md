@@ -86,38 +86,38 @@ TOPIC: "order-events"
 
 ```mermaid
 graph TD
-    subgraph Producers
-        P1[Order Service API]
+    subgraph Producers ["Producers"]
+        P1["Order Service API"]
     end
 
-    subgraph Kafka Cluster (Topic: order-events)
-        subgraph Partition 0 (Broker 1 - Leader)
+    subgraph KafkaCluster ["Kafka Cluster (Topic: order-events)"]
+        subgraph Part0 ["Partition 0 (Broker 1 - Leader)"]
             Msg0_1["Offset 0: Order#1 (cust_100)"]
             Msg0_2["Offset 1: Order#4 (cust_100)"]
         end
-        subgraph Partition 1 (Broker 2 - Leader)
+        subgraph Part1 ["Partition 1 (Broker 2 - Leader)"]
             Msg1_1["Offset 0: Order#2 (cust_200)"]
             Msg1_2["Offset 1: Order#5 (cust_200)"]
         end
     end
 
-    subgraph Consumer Group A (Fulfillment Service)
-        C_A1[Worker 1 -> Consumes Partition 0]
-        C_A2[Worker 2 -> Consumes Partition 1]
+    subgraph ConsA ["Consumer Group A (Fulfillment Service)"]
+        C_A1["Worker 1 -> Consumes Partition 0"]
+        C_A2["Worker 2 -> Consumes Partition 1"]
     end
 
-    subgraph Consumer Group B (Analytics Service)
-        C_B1[Analytics Worker -> Consumes Partition 0 & 1]
+    subgraph ConsB ["Consumer Group B (Analytics Service)"]
+        C_B1["Analytics Worker -> Consumes Partition 0 & 1"]
     end
 
-    P1 -->|Hash cust_100| Partition 0
-    P1 -->|Hash cust_200| Partition 1
+    P1 -->|Hash cust_100| Part0
+    P1 -->|Hash cust_200| Part1
 
-    Partition 0 --> C_A1
-    Partition 1 --> C_A2
+    Part0 --> C_A1
+    Part1 --> C_A2
 
-    Partition 0 --> C_B1
-    Partition 1 --> C_B1
+    Part0 --> C_B1
+    Part1 --> C_B1
 ```
 
 ---

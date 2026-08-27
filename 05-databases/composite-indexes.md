@@ -74,7 +74,7 @@ For index `(status, created_at, amount)`:
 
 ```mermaid
 graph TD
-    subgraph Composite Index on (customer_id, created_at)
+    subgraph CompIdx ["Composite Index on (customer_id, created_at)"]
         Entry1["Key: (101, 2026-01-01 10:00) ──► Row 1"]
         Entry2["Key: (101, 2026-01-05 14:00) ──► Row 2"]
         Entry3["Key: (101, 2026-01-10 09:00) ──► Row 3"]
@@ -85,7 +85,7 @@ graph TD
         Entry1 --> Entry2 --> Entry3 --> Entry4 --> Entry5 --> Entry6
     end
 
-    subgraph Query Usability
+    subgraph QueryUsability ["Query Usability"]
         Q1["WHERE customer_id = 101 AND created_at > '2026-01-02'"] -->|Fast Index Seek & Range Scan| Matched1["Seeks directly to (101, 2026-01-05), scans to (101, 2026-01-10)"]
         Q2["WHERE customer_id = 101"] -->|Fast Index Seek| Matched2["Seeks all 101 records efficiently"]
         Q3["WHERE created_at = '2026-01-05'"] -->|Full Scan Required| Matched3["Cannot seek! customer_id 101 is scattered"]

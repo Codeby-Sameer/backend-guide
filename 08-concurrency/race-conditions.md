@@ -106,20 +106,20 @@ sequenceDiagram
 
     Note over DB: Initial State: Item 99 has stock = 1
 
-    U1->>DB: BEGIN; SELECT stock FROM items WHERE id=99 FOR UPDATE;
+    U1->>DB: BEGIN - SELECT stock FROM items WHERE id=99 FOR UPDATE
     Note over DB: Lock Granted to User 1 (X-Lock on row 99)
     
-    U2->>DB: BEGIN; SELECT stock FROM items WHERE id=99 FOR UPDATE;
+    U2->>DB: BEGIN - SELECT stock FROM items WHERE id=99 FOR UPDATE
     Note over DB: User 2 is BLOCKED! Waits for User 1 to finish...
 
     Note over U1: Validates stock (1 >= 1) -> OK!
-    U1->>DB: UPDATE items SET stock = 0 WHERE id=99;
-    U1->>DB: COMMIT; (Releases Lock)
+    U1->>DB: UPDATE items SET stock = 0 WHERE id=99
+    U1->>DB: COMMIT (Releases Lock)
     
     Note over DB: User 2 Unblocked! Evaluates query...
     DB-->>U2: Returns stock = 0
     Note over U2: Validates stock (0 >= 1) -> FALSE (Out of stock!)
-    U2->>DB: ROLLBACK;
+    U2->>DB: ROLLBACK
     U2-->>U2: Returns "Sold Out" error to User 2
 ```
 

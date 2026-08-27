@@ -1,37 +1,37 @@
 graph TD
-    subgraph Producers
+    subgraph Producers ["Producers"]
         P1[Order Service Producer]
         P2[Payment Service Producer]
     end
 
-    subgraph Kafka Cluster (Topic: order-events)
-        subgraph Partition 0 (Leader: Broker 1)
+    subgraph KafkaCluster ["Kafka Cluster (Topic: order-events)"]
+        subgraph Part0 ["Partition 0 (Leader: Broker 1)"]
             P0_Msg1["Offset 0: Order#101"]
             P0_Msg2["Offset 1: Order#104"]
             P0_Msg3["Offset 2: Order#107"]
         end
 
-        subgraph Partition 1 (Leader: Broker 2)
+        subgraph Part1 ["Partition 1 (Leader: Broker 2)"]
             P1_Msg1["Offset 0: Order#102"]
             P1_Msg2["Offset 1: Order#105"]
         end
 
-        subgraph Partition 2 (Leader: Broker 3)
+        subgraph Part2 ["Partition 2 (Leader: Broker 3)"]
             P2_Msg1["Offset 0: Order#103"]
             P2_Msg2["Offset 1: Order#106"]
         end
     end
 
-    subgraph Consumer Group (Order Fulfillment Group)
+    subgraph ConsumerGrp ["Consumer Group (Order Fulfillment Group)"]
         C1[Consumer Instance 1]
         C2[Consumer Instance 2]
         C3[Consumer Instance 3]
     end
 
-    P1 -->|Hash Key: customer_id| Partition 0
-    P1 -->|Hash Key: customer_id| Partition 1
-    P2 -->|Hash Key: customer_id| Partition 2
+    P1 -->|Hash Key: customer_id| Part0
+    P1 -->|Hash Key: customer_id| Part1
+    P2 -->|Hash Key: customer_id| Part2
 
-    Partition 0 -->|Pull Messages| C1
-    Partition 1 -->|Pull Messages| C2
-    Partition 2 -->|Pull Messages| C3
+    Part0 -->|Pull Messages| C1
+    Part1 -->|Pull Messages| C2
+    Part2 -->|Pull Messages| C3

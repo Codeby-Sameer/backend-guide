@@ -81,25 +81,25 @@ Shard 3 (Users 2,000,001 - 3,000,000) ──► DB Node C
 
 ```mermaid
 graph TD
-    subgraph Edge Layer
-        DNS[Route 53 / Cloudflare CDN] --> LB[Layer 7 Load Balancer]
+    subgraph EdgeLayer ["Edge Layer"]
+        DNS["Route 53 / Cloudflare CDN"] --> LB["Layer 7 Load Balancer"]
     end
 
-    subgraph Horizontally Scaled Stateless App Tier
-        LB --> Pod1[App Instance 1]
-        LB --> Pod2[App Instance 2]
-        LB --> Pod3[App Instance 3]
+    subgraph AppTier ["Horizontally Scaled Stateless App Tier"]
+        LB --> Pod1["App Instance 1"]
+        LB --> Pod2["App Instance 2"]
+        LB --> Pod3["App Instance 3"]
         LB --> PodN["App Instance N... (Auto-Scaled)"]
     end
 
-    subgraph Distributed Caching Tier
+    subgraph CacheTier ["Distributed Caching Tier"]
         Pod1 --- Redis[(Redis Cluster)]
         Pod2 --- Redis
         Pod3 --- Redis
         PodN --- Redis
     end
 
-    subgraph Data Tier (Read/Write Split & Sharding)
+    subgraph DataTier ["Data Tier (Read/Write Split & Sharding)"]
         Pod1 -->|Writes| DBMaster[(DB Primary Master)]
         Pod2 -->|Writes| DBMaster
         Pod3 -->|Writes| DBMaster

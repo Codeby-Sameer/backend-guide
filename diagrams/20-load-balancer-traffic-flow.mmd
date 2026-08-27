@@ -1,14 +1,14 @@
 graph TD
-    subgraph Ingress Layer
-        Clients[Clients / Mobile / Web] -->|HTTPS 443| LB[Layer 7 Load Balancer / NGINX / ALB]
+    subgraph IngressLayer ["Ingress Layer"]
+        Clients["Clients / Mobile / Web"] -->|HTTPS 443| LB["Layer 7 Load Balancer / NGINX / ALB"]
     end
 
-    subgraph Load Balancer Logic
+    subgraph LBMachine ["Load Balancer Logic"]
         LB -->|Health Check Probe: GET /healthz 200 OK| Health[Health Checking Subsystem]
         LB -->|Routing Algorithm: Round Robin / Least Connections| TargetGroup[Target Group]
     end
 
-    subgraph Backend Server Pool (Horizontally Scaled)
+    subgraph BackendPool ["Backend Server Pool (Horizontally Scaled)"]
         TargetGroup --> Backend1["API Server 1 (Healthy - 10 conn)"]
         TargetGroup --> Backend2["API Server 2 (Healthy - 12 conn)"]
         TargetGroup -.->|Traffic Skipped - 500 Err| Backend3["API Server 3 (Unhealthy)"]

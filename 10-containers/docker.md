@@ -71,19 +71,19 @@ Docker images are built as a stack of read-only cryptographic layers. When a con
 
 ```mermaid
 graph TD
-    subgraph Build Phase (Layer Caching & Multi-Stage)
-        DF[Dockerfile] --> Stage1["Stage 1: Build & Compile (Go/Node/Java)"]
+    subgraph BuildPhase ["Build Phase (Layer Caching & Multi-Stage)"]
+        DF["Dockerfile"] --> Stage1["Stage 1: Build & Compile (Go/Node/Java)"]
         Stage1 --> Artifact["Compiled Binary (e.g., 20MB)"]
         Artifact --> Stage2["Stage 2: Minimal Distroless / Alpine Base"]
         Stage2 --> Image["Final Docker Image: api:v1.0.0 (25MB)"]
     end
 
-    subgraph Distribution
+    subgraph DistributionTier ["Distribution"]
         Image --> Registry[(Container Registry: ECR / Docker Hub)]
     end
 
-    subgraph Runtime Execution
-        Registry --> Engine[Docker Engine / containerd]
+    subgraph RuntimeExecution ["Runtime Execution"]
+        Registry --> Engine["Docker Engine / containerd"]
         Engine --> HostKernel["Host Linux Kernel<br/>(Namespaces + Cgroups)"]
         HostKernel --> Container1["Running Container (PID 1 - isolated)"]
     end

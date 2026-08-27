@@ -84,24 +84,24 @@ Before REST, distributed APIs commonly used heavyweight, tightly coupled protoco
 
 ```mermaid
 graph TD
-    subgraph Client Layer
-        Web[Web SPA]
-        Mobile[Mobile iOS/Android]
+    subgraph ClientLayer ["Client Layer"]
+        Web["Web SPA"]
+        Mobile["Mobile iOS/Android"]
     end
 
-    subgraph API Gateway / Ingress
-        GW[API Gateway]
-        RateLimit[Rate Limiter (429)]
-        Auth[Auth Validator (401/403)]
+    subgraph APIGateway ["API Gateway / Ingress"]
+        GW["API Gateway"]
+        RateLimit["Rate Limiter (429)"]
+        Auth["Auth Validator (401/403)"]
     end
 
-    subgraph REST Resource Handlers
-        UsersRouter["/v1/users<br/>GET: List | POST: Create"]
-        UserDetailRouter["/v1/users/{id}<br/>GET: Read | PUT: Replace | PATCH: Modify | DELETE: Remove"]
+    subgraph ResourceHandlers ["REST Resource Handlers"]
+        UsersRouter["/v1/users<br/>GET: List, POST: Create"]
+        UserDetailRouter["/v1/users/{id}<br/>GET: Read, PUT: Replace, PATCH: Modify, DELETE: Remove"]
         UserOrdersRouter["/v1/users/{id}/orders?cursor=xyz&limit=25<br/>GET: List Orders (Cursor Paginated)"]
     end
 
-    subgraph Data Store
+    subgraph DataStore ["Data Store"]
         DB[(Database with Indexes)]
     end
 

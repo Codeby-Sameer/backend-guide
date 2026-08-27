@@ -14,5 +14,5 @@ sequenceDiagram
 
     Note over Tx1,Tx2: Circular Wait Condition: Tx1 waits for Tx2, Tx2 waits for Tx1
     DB->>DB: Wait-For Graph Cycle Detected!
-    DB-->>Tx2: ERROR 1213 (40001): Deadlock found when trying to get lock; Tx2 aborted (Rollback)
+    DB-->>Tx2: ERROR 1213 (40001): Deadlock found when trying to get lock - Tx2 aborted (Rollback)
     Note over Tx1: Tx1 acquires Lock on Row B and completes

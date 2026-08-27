@@ -77,7 +77,7 @@ Unlike binary search trees (BST), a B+ Tree has a very high **fan-out** (typical
 
 ```mermaid
 graph TD
-    subgraph Sequential Table Scan (O(N) - Costly)
+    subgraph SeqScan ["Sequential Table Scan (O(N) - Costly)"]
         Q1["SELECT * FROM users WHERE email = 'bob@test.com'"] --> Engine1[DB Engine]
         Engine1 --> Page1["Disk Page 1 (100 rows evaluated)"]
         Page1 --> Page2["Disk Page 2 (100 rows evaluated)"]
@@ -85,7 +85,7 @@ graph TD
         PageN --> Match1["Found 1 Matching Row (High I/O Latency)"]
     end
 
-    subgraph B+ Tree Index Seek (O(log N) - Ultra Fast)
+    subgraph IndexSeek ["B+ Tree Index Seek (O(log N) - Ultra Fast)"]
         Q2["SELECT * FROM users WHERE email = 'bob@test.com'"] --> Engine2[DB Engine]
         Engine2 --> Root["B+ Tree Root Page"]
         Root --> Branch["Branch Page (B)"]

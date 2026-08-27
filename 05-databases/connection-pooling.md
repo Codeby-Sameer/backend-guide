@@ -73,17 +73,17 @@ A pool of **33 connections** will consistently outperform a pool of 500 connecti
 
 ```mermaid
 graph TD
-    subgraph Horizontally Scaled App Tier (100 Pods / Lambdas)
-        App1[App Pod 1: Pool=5]
-        App2[App Pod 2: Pool=5]
+    subgraph AppTier ["Horizontally Scaled App Tier (100 Pods / Lambdas)"]
+        App1["App Pod 1: Pool=5"]
+        App2["App Pod 2: Pool=5"]
         AppN["... 100 App Pods (500 total client connections) ..."]
     end
 
-    subgraph Dedicated Connection Proxy Layer
+    subgraph ProxyLayer ["Dedicated Connection Proxy Layer"]
         PgBouncer["PgBouncer / AWS RDS Proxy<br/>(Transaction Pooling Mode)"]
     end
 
-    subgraph Database Server (16 Core Instance)
+    subgraph DBServer ["Database Server (16 Core Instance)"]
         DB["PostgreSQL Master<br/>(Target Pool: 32 Physical Backend Workers)"]
     end
 

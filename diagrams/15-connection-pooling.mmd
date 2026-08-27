@@ -1,5 +1,5 @@
 graph TD
-    subgraph Application Instances (e.g., 20 Threads / Coroutines)
+    subgraph AppInstances ["Application Instances (e.g., 20 Threads / Coroutines)"]
         T1[Thread 1]
         T2[Thread 2]
         T3[Thread 3]
@@ -7,13 +7,13 @@ graph TD
         TN[Thread N]
     end
 
-    subgraph Client-Side Connection Pool (e.g., HikariCP / asyncpg pool)
+    subgraph ConnPool ["Client-Side Connection Pool (e.g., HikariCP / asyncpg pool)"]
         Available["Available Connections: [ Conn 1, Conn 2, Conn 3 ]"]
         Active["In-Use / Borrowed: [ Conn 4, Conn 5 ]"]
         Waiting["Request Queue: [ Thread Waiting ]"]
     end
 
-    subgraph Database Server
+    subgraph DBServer ["Database Server"]
         Backend1[PostgreSQL Worker Process 1]
         Backend2[PostgreSQL Worker Process 2]
         Backend3[PostgreSQL Worker Process 3]
