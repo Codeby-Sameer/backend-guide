@@ -222,9 +222,9 @@ def transfer_wallet_balance(sender_id: str, receiver_id: str, amount: float):
 
 ## 12. Related Concepts
 
-- [Locks & Deadlocks](file:///home/sameer/backendguide/05-databases/locks-deadlocks.md)
-- [Isolation Levels & Write Skew](file:///home/sameer/backendguide/05-databases/isolation-levels.md)
-- [Idempotency & Safe Retries](file:///home/sameer/backendguide/03-reliability/idempotency.md)
+- [Locks & Deadlocks](../05-databases/locks-deadlocks.md)
+- [Isolation Levels & Write Skew](../05-databases/isolation-levels.md)
+- [Idempotency & Safe Retries](../03-reliability/idempotency.md)
 
 ---
 

@@ -192,9 +192,9 @@ const resolvers = {
 
 ## 12. Related Concepts
 
-- [Database Indexes & Performance](file:///home/sameer/backendguide/05-databases/indexes.md)
-- [Connection Pooling](file:///home/sameer/backendguide/05-databases/connection-pooling.md)
-- [REST API Design](file:///home/sameer/backendguide/02-api-design/rest-apis.md)
+- [Database Indexes & Performance](./indexes.md)
+- [Connection Pooling](./connection-pooling.md)
+- [REST API Design](../02-api-design/rest-apis.md)
 
 ---
 

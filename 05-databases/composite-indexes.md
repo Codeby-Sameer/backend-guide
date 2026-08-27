@@ -188,9 +188,9 @@ INCLUDE (total_price, order_id);
 
 ## 12. Related Concepts
 
-- [Database Indexes Fundamentals](file:///home/sameer/backendguide/05-databases/indexes.md)
-- [Locks & Deadlocks](file:///home/sameer/backendguide/05-databases/locks-deadlocks.md)
-- [N+1 Query Problem](file:///home/sameer/backendguide/05-databases/n-plus-one.md)
+- [Database Indexes Fundamentals](./indexes.md)
+- [Locks & Deadlocks](./locks-deadlocks.md)
+- [N+1 Query Problem](./n-plus-one.md)
 
 ---
 

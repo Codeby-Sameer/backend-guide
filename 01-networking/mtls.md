@@ -168,10 +168,10 @@ spec:
 
 ## 12. Related Concepts
 
-- [HTTP vs HTTPS](file:///home/sameer/backendguide/01-networking/http-vs-https.md)
-- [TLS Architecture](file:///home/sameer/backendguide/01-networking/tls.md)
-- [Authentication vs Authorization](file:///home/sameer/backendguide/04-security/authentication-vs-authorization.md)
-- [JWT vs Sessions](file:///home/sameer/backendguide/04-security/jwt-vs-sessions.md)
+- [HTTP vs HTTPS](./http-vs-https.md)
+- [TLS Architecture](./tls.md)
+- [Authentication vs Authorization](../04-security/authentication-vs-authorization.md)
+- [JWT vs Sessions](../04-security/jwt-vs-sessions.md)
 
 ---
 

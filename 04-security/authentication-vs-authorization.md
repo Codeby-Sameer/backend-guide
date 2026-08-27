@@ -215,9 +215,9 @@ CREATE INDEX idx_api_keys_hash ON api_keys (key_hash) WHERE is_active = TRUE;
 
 ## 12. Related Concepts
 
-- [JWT vs Sessions](file:///home/sameer/backendguide/04-security/jwt-vs-sessions.md)
-- [Mutual TLS (mTLS)](file:///home/sameer/backendguide/01-networking/mtls.md)
-- [REST API Status Codes](file:///home/sameer/backendguide/02-api-design/rest-apis.md)
+- [JWT vs Sessions](./jwt-vs-sessions.md)
+- [Mutual TLS (mTLS)](../01-networking/mtls.md)
+- [REST API Status Codes](../02-api-design/rest-apis.md)
 
 ---
 

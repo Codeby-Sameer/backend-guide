@@ -165,9 +165,9 @@ A physical connection is returned to the pool after every individual SQL stateme
 
 ## 12. Related Concepts
 
-- [Transactions & ACID](file:///home/sameer/backendguide/05-databases/transactions-acid.md)
-- [Locks & Deadlocks](file:///home/sameer/backendguide/05-databases/locks-deadlocks.md)
-- [Horizontal Scaling & Bottlenecks](file:///home/sameer/backendguide/09-scalability/horizontal-vs-vertical-scaling.md)
+- [Transactions & ACID](./transactions-acid.md)
+- [Locks & Deadlocks](./locks-deadlocks.md)
+- [Horizontal Scaling & Bottlenecks](../09-scalability/horizontal-vs-vertical-scaling.md)
 
 ---
 

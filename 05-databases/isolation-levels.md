@@ -208,9 +208,9 @@ COMMIT;
 
 ## 12. Related Concepts
 
-- [Transactions & ACID](file:///home/sameer/backendguide/05-databases/transactions-acid.md)
-- [Locks & Deadlocks](file:///home/sameer/backendguide/05-databases/locks-deadlocks.md)
-- [Race Conditions](file:///home/sameer/backendguide/08-concurrency/race-conditions.md)
+- [Transactions & ACID](./transactions-acid.md)
+- [Locks & Deadlocks](./locks-deadlocks.md)
+- [Race Conditions](../08-concurrency/race-conditions.md)
 
 ---
 

@@ -202,9 +202,9 @@ def get_shard_connection(user_id: str):
 
 ## 12. Related Concepts
 
-- [Load Balancing](file:///home/sameer/backendguide/09-scalability/load-balancing.md)
-- [Rate Limiting](file:///home/sameer/backendguide/09-scalability/rate-limiting.md)
-- [Database Indexes & Optimization](file:///home/sameer/backendguide/05-databases/indexes.md)
+- [Load Balancing](./load-balancing.md)
+- [Rate Limiting](./rate-limiting.md)
+- [Database Indexes & Optimization](../05-databases/indexes.md)
 
 ---
 

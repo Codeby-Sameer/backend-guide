@@ -188,9 +188,9 @@ If an attacker and a legitimate user both attempt to use the same old refresh to
 
 ## 12. Related Concepts
 
-- [Authentication vs Authorization](file:///home/sameer/backendguide/04-security/authentication-vs-authorization.md)
-- [REST APIs & Error Codes](file:///home/sameer/backendguide/02-api-design/rest-apis.md)
-- [Redis Caching & Invalidation](file:///home/sameer/backendguide/06-caching/redis-caching.md)
+- [Authentication vs Authorization](./authentication-vs-authorization.md)
+- [REST APIs & Error Codes](../02-api-design/rest-apis.md)
+- [Redis Caching & Invalidation](../06-caching/redis-caching.md)
 
 ---
 

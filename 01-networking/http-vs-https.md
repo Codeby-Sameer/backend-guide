@@ -175,10 +175,10 @@ server {
 
 ## 12. Related Concepts
 
-- [TLS Architecture & Handshake Details](file:///home/sameer/backendguide/01-networking/tls.md)
-- [mTLS (Mutual TLS) for Microservices](file:///home/sameer/backendguide/01-networking/mtls.md)
-- [REST API Design Best Practices](file:///home/sameer/backendguide/02-api-design/rest-apis.md)
-- [Load Balancing & TLS Termination](file:///home/sameer/backendguide/09-scalability/load-balancing.md)
+- [TLS Architecture & Handshake Details](./tls.md)
+- [mTLS (Mutual TLS) for Microservices](./mtls.md)
+- [REST API Design Best Practices](../02-api-design/rest-apis.md)
+- [Load Balancing & TLS Termination](../09-scalability/load-balancing.md)
 
 ---
 

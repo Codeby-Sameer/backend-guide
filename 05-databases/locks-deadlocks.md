@@ -197,9 +197,9 @@ Instead of worker threads waiting in line on row locks (causing deadlocks and la
 
 ## 12. Related Concepts
 
-- [Transactions & ACID](file:///home/sameer/backendguide/05-databases/transactions-acid.md)
-- [Isolation Levels & Write Skew](file:///home/sameer/backendguide/05-databases/isolation-levels.md)
-- [Race Conditions & Concurrency](file:///home/sameer/backendguide/08-concurrency/race-conditions.md)
+- [Transactions & ACID](./transactions-acid.md)
+- [Isolation Levels & Write Skew](./isolation-levels.md)
+- [Race Conditions & Concurrency](../08-concurrency/race-conditions.md)
 
 ---
 

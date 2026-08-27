@@ -125,29 +125,29 @@ Dedicated, categorized question repositories:
 ## 📊 Technical Diagrams Gallery
 
 All technical diagrams are available in standalone `.mmd` files in the [`diagrams/`](./diagrams/) directory and embedded directly into the markdown guides:
-1. `01-http-request-response.mmd`
-2. `02-tls-handshake.mmd`
-3. `03-mtls-handshake.mmd`
-4. `04-rest-api-architecture.mmd`
-5. `05-idempotency-flow.mmd`
-6. `06-jwt-authentication.mmd`
-7. `07-session-authentication.mmd`
-8. `08-table-scan-vs-index-lookup.mmd`
-9. `09-btree-index-structure.mmd`
-10. `10-composite-index-ordering.mmd`
-11. `11-acid-transaction-lifecycle.mmd`
-12. `12-isolation-level-anomalies.mmd`
-13. `13-deadlock-detection.mmd`
-14. `14-n-plus-one-query-problem.mmd`
-15. `15-connection-pooling.mmd`
-16. `16-redis-caching-patterns.mmd`
-17. `17-kafka-cluster-architecture.mmd`
-18. `18-race-condition-inventory.mmd`
-19. `19-rate-limiting-algorithms.mmd`
-20. `20-load-balancer-traffic-flow.mmd`
-21. `21-horizontal-vs-vertical-scaling.mmd`
-22. `22-docker-container-architecture.mmd`
-23. `23-observability-three-pillars.mmd`
+1. [`01-http-request-response.mmd`](./diagrams/01-http-request-response.mmd)
+2. [`02-tls-handshake.mmd`](./diagrams/02-tls-handshake.mmd)
+3. [`03-mtls-handshake.mmd`](./diagrams/03-mtls-handshake.mmd)
+4. [`04-rest-api-architecture.mmd`](./diagrams/04-rest-api-architecture.mmd)
+5. [`05-idempotency-flow.mmd`](./diagrams/05-idempotency-flow.mmd)
+6. [`06-jwt-authentication.mmd`](./diagrams/06-jwt-authentication.mmd)
+7. [`07-session-authentication.mmd`](./diagrams/07-session-authentication.mmd)
+8. [`08-table-scan-vs-index-lookup.mmd`](./diagrams/08-table-scan-vs-index-lookup.mmd)
+9. [`09-btree-index-structure.mmd`](./diagrams/09-btree-index-structure.mmd)
+10. [`10-composite-index-ordering.mmd`](./diagrams/10-composite-index-ordering.mmd)
+11. [`11-acid-transaction-lifecycle.mmd`](./diagrams/11-acid-transaction-lifecycle.mmd)
+12. [`12-isolation-level-anomalies.mmd`](./diagrams/12-isolation-level-anomalies.mmd)
+13. [`13-deadlock-detection.mmd`](./diagrams/13-deadlock-detection.mmd)
+14. [`14-n-plus-one-query-problem.mmd`](./diagrams/14-n-plus-one-query-problem.mmd)
+15. [`15-connection-pooling.mmd`](./diagrams/15-connection-pooling.mmd)
+16. [`16-redis-caching-patterns.mmd`](./diagrams/16-redis-caching-patterns.mmd)
+17. [`17-kafka-cluster-architecture.mmd`](./diagrams/17-kafka-cluster-architecture.mmd)
+18. [`18-race-condition-inventory.mmd`](./diagrams/18-race-condition-inventory.mmd)
+19. [`19-rate-limiting-algorithms.mmd`](./diagrams/19-rate-limiting-algorithms.mmd)
+20. [`20-load-balancer-traffic-flow.mmd`](./diagrams/20-load-balancer-traffic-flow.mmd)
+21. [`21-horizontal-vs-vertical-scaling.mmd`](./diagrams/21-horizontal-vs-vertical-scaling.mmd)
+22. [`22-docker-container-architecture.mmd`](./diagrams/22-docker-container-architecture.mmd)
+23. [`23-observability-three-pillars.mmd`](./diagrams/23-observability-three-pillars.mmd)
 
 ---
 

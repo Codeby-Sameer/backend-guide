@@ -181,9 +181,9 @@ The database resolves the query directly from the cached B-Tree leaf pages witho
 
 ## 12. Related Concepts
 
-- [Composite Indexes & Column Ordering](file:///home/sameer/backendguide/05-databases/composite-indexes.md)
-- [Database Transactions & ACID](file:///home/sameer/backendguide/05-databases/transactions-acid.md)
-- [N+1 Query Problem](file:///home/sameer/backendguide/05-databases/n-plus-one.md)
+- [Composite Indexes & Column Ordering](./composite-indexes.md)
+- [Database Transactions & ACID](./transactions-acid.md)
+- [N+1 Query Problem](./n-plus-one.md)
 
 ---
 

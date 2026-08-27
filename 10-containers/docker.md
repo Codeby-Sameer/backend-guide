@@ -208,9 +208,9 @@ docker exec -it my-api /bin/sh
 
 ## 12. Related Concepts
 
-- [Horizontal vs Vertical Scaling](file:///home/sameer/backendguide/09-scalability/horizontal-vs-vertical-scaling.md)
-- [Logging & Observability](file:///home/sameer/backendguide/11-observability/logging-metrics-monitoring.md)
-- [Load Balancing & Ingress](file:///home/sameer/backendguide/09-scalability/load-balancing.md)
+- [Horizontal vs Vertical Scaling](../09-scalability/horizontal-vs-vertical-scaling.md)
+- [Logging & Observability](../11-observability/logging-metrics-monitoring.md)
+- [Load Balancing & Ingress](../09-scalability/load-balancing.md)
 
 ---
 

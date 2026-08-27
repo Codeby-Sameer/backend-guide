@@ -218,9 +218,9 @@ When a consumer encounters a malformed payload or unrecoverable error (e.g., cor
 
 ## 12. Related Concepts
 
-- [Idempotency & Safe Retries](file:///home/sameer/backendguide/03-reliability/idempotency.md)
-- [Race Conditions & Concurrency](file:///home/sameer/backendguide/08-concurrency/race-conditions.md)
-- [Observability & Distributed Tracing](file:///home/sameer/backendguide/11-observability/logging-metrics-monitoring.md)
+- [Idempotency & Safe Retries](../03-reliability/idempotency.md)
+- [Race Conditions & Concurrency](../08-concurrency/race-conditions.md)
+- [Observability & Distributed Tracing](../11-observability/logging-metrics-monitoring.md)
 
 ---
 

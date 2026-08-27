@@ -230,9 +230,9 @@ spec:
 
 ## 12. Related Concepts
 
-- [HTTP vs HTTPS & TLS Offloading](file:///home/sameer/backendguide/01-networking/http-vs-https.md)
-- [Horizontal vs Vertical Scaling](file:///home/sameer/backendguide/09-scalability/horizontal-vs-vertical-scaling.md)
-- [Rate Limiting](file:///home/sameer/backendguide/09-scalability/rate-limiting.md)
+- [HTTP vs HTTPS & TLS Offloading](../01-networking/http-vs-https.md)
+- [Horizontal vs Vertical Scaling](./horizontal-vs-vertical-scaling.md)
+- [Rate Limiting](./rate-limiting.md)
 
 ---
 

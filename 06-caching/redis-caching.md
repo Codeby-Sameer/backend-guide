@@ -215,9 +215,9 @@ def release_lock(lock_key: str, token: str) -> bool:
 
 ## 12. Related Concepts
 
-- [Database Connection Pooling](file:///home/sameer/backendguide/05-databases/connection-pooling.md)
-- [Rate Limiting with Redis](file:///home/sameer/backendguide/09-scalability/rate-limiting.md)
-- [Race Conditions & Distributed Locks](file:///home/sameer/backendguide/08-concurrency/race-conditions.md)
+- [Database Connection Pooling](../05-databases/connection-pooling.md)
+- [Rate Limiting with Redis](../09-scalability/rate-limiting.md)
+- [Race Conditions & Distributed Locks](../08-concurrency/race-conditions.md)
 
 ---
 

@@ -206,10 +206,10 @@ WHERE user_id = 'usr_100' AND idempotency_key = 'uuid-9876-abcd';
 
 ## 12. Related Concepts
 
-- [REST API Design & HTTP Verbs](file:///home/sameer/backendguide/02-api-design/rest-apis.md)
-- [Database Transactions & ACID](file:///home/sameer/backendguide/05-databases/transactions-acid.md)
-- [Race Conditions & Concurrency](file:///home/sameer/backendguide/08-concurrency/race-conditions.md)
-- [Message Queues & At-Least-Once Delivery](file:///home/sameer/backendguide/07-messaging/message-queues-kafka.md)
+- [REST API Design & HTTP Verbs](../02-api-design/rest-apis.md)
+- [Database Transactions & ACID](../05-databases/transactions-acid.md)
+- [Race Conditions & Concurrency](../08-concurrency/race-conditions.md)
+- [Message Queues & At-Least-Once Delivery](../07-messaging/message-queues-kafka.md)
 
 ---
 

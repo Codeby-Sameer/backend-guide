@@ -191,9 +191,9 @@ Instead of blocking distributed Two-Phase Commit (2PC) locks, use an **Orchestra
 
 ## 12. Related Concepts
 
-- [Isolation Levels & Concurrency Anomalies](file:///home/sameer/backendguide/05-databases/isolation-levels.md)
-- [Locks & Deadlocks](file:///home/sameer/backendguide/05-databases/locks-deadlocks.md)
-- [Race Conditions & Concurrency](file:///home/sameer/backendguide/08-concurrency/race-conditions.md)
+- [Isolation Levels & Concurrency Anomalies](./isolation-levels.md)
+- [Locks & Deadlocks](./locks-deadlocks.md)
+- [Race Conditions & Concurrency](../08-concurrency/race-conditions.md)
 
 ---
 

@@ -263,9 +263,9 @@ groups:
 
 ## 12. Related Concepts
 
-- [Microservices & Kafka](file:///home/sameer/backendguide/07-messaging/message-queues-kafka.md)
-- [Load Balancing & Health Checks](file:///home/sameer/backendguide/09-scalability/load-balancing.md)
-- [Docker Container Monitoring](file:///home/sameer/backendguide/10-containers/docker.md)
+- [Microservices & Kafka](../07-messaging/message-queues-kafka.md)
+- [Load Balancing & Health Checks](../09-scalability/load-balancing.md)
+- [Docker Container Monitoring](../10-containers/docker.md)
 
 ---
 

@@ -210,10 +210,10 @@ func main() {
 
 ## 12. Related Concepts
 
-- [HTTP vs HTTPS Overview](file:///home/sameer/backendguide/01-networking/http-vs-https.md)
-- [mTLS: Mutual TLS Authentication](file:///home/sameer/backendguide/01-networking/mtls.md)
-- [Authentication vs Authorization](file:///home/sameer/backendguide/04-security/authentication-vs-authorization.md)
-- [Load Balancing & TLS Offloading](file:///home/sameer/backendguide/09-scalability/load-balancing.md)
+- [HTTP vs HTTPS Overview](./http-vs-https.md)
+- [mTLS: Mutual TLS Authentication](./mtls.md)
+- [Authentication vs Authorization](../04-security/authentication-vs-authorization.md)
+- [Load Balancing & TLS Offloading](../09-scalability/load-balancing.md)
 
 ---
 

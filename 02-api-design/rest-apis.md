@@ -221,10 +221,10 @@ Content-Type: application/json
 
 ## 12. Related Concepts
 
-- [HTTP vs HTTPS Fundamentals](file:///home/sameer/backendguide/01-networking/http-vs-https.md)
-- [Idempotency & Safe Retries](file:///home/sameer/backendguide/03-reliability/idempotency.md)
-- [Authentication vs Authorization (401 vs 403)](file:///home/sameer/backendguide/04-security/authentication-vs-authorization.md)
-- [Rate Limiting (429 Handling)](file:///home/sameer/backendguide/09-scalability/rate-limiting.md)
+- [HTTP vs HTTPS Fundamentals](../01-networking/http-vs-https.md)
+- [Idempotency & Safe Retries](../03-reliability/idempotency.md)
+- [Authentication vs Authorization (401 vs 403)](../04-security/authentication-vs-authorization.md)
+- [Rate Limiting (429 Handling)](../09-scalability/rate-limiting.md)
 
 ---
 

@@ -216,9 +216,9 @@ Retry-After: 15
 
 ## 12. Related Concepts
 
-- [Redis Caching & Lua Scripts](file:///home/sameer/backendguide/06-caching/redis-caching.md)
-- [Load Balancing & Reverse Proxies](file:///home/sameer/backendguide/09-scalability/load-balancing.md)
-- [Race Conditions & Concurrency](file:///home/sameer/backendguide/08-concurrency/race-conditions.md)
+- [Redis Caching & Lua Scripts](../06-caching/redis-caching.md)
+- [Load Balancing & Reverse Proxies](./load-balancing.md)
+- [Race Conditions & Concurrency](../08-concurrency/race-conditions.md)
 
 ---
 
